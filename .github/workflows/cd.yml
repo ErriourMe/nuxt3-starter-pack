@@ -5,6 +5,10 @@ on: [push, pull_request]
 jobs:
   cd:
     runs-on: ${{ matrix.os }}
+    defaults:
+    run:
+      shell: bash
+      working-directory: src
 
     strategy:
       matrix:
@@ -19,9 +23,6 @@ jobs:
         uses: actions/setup-node@v2.1.2
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Experiment
-        run: cd src
       
       - uses: pnpm/action-setup@v2
         name: Install pnpm
@@ -54,4 +55,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./src/dist
+          publish_dir: ./dist
