@@ -22,7 +22,7 @@ jobs:
       
       - uses: pnpm/action-setup@v2
         name: Install pnpm
-        working-directory: ./src
+        working-directory: src
         id: pnpm-install
         with:
           version: 7
@@ -30,14 +30,14 @@ jobs:
       
       - name: Get pnpm store directory
         id: pnpm-cache
-        working-directory: ./src
+        working-directory: src
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
       - uses: actions/cache@v3
         name: Setup pnpm cache
-        working-directory: ./src
+        working-directory: src
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -46,11 +46,11 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --shamefully-hoist
-        working-directory: ./src
+        working-directory: src
 
       - name: Generate
         run: pnpm generate
-        working-directory: ./src
+        working-directory: src
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
