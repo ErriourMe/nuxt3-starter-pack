@@ -14,14 +14,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
+        working-directory: ./src
 
       - name: Setup node env
         uses: actions/setup-node@v2.1.2
+        working-directory: ./src
         with:
           node-version: ${{ matrix.node }}
       
       - uses: pnpm/action-setup@v2
         name: Install pnpm
+        working-directory: ./src
         id: pnpm-install
         with:
           version: 7
@@ -29,12 +32,14 @@ jobs:
       
       - name: Get pnpm store directory
         id: pnpm-cache
+        working-directory: ./src
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
       - uses: actions/cache@v3
         name: Setup pnpm cache
+        working-directory: ./src
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -43,12 +48,14 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --shamefully-hoist
+        working-directory: ./src
 
       - name: Generate
         run: pnpm generate
+        working-directory: ./src
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./src/dist
