@@ -30,7 +30,7 @@ For detailed explanation on how things work, check out [Nuxt 3 docs](https://v3.
 
 ## Docker
 
-If you woul like to use docker? you should configure it in `docker-compose.yml` and `.env`
+If you would like to use docker? you should configure it in `docker-compose.yml` and `.env`
 
 * Change ports in `docker-compose.yml` if necessary
 * Copy `.env.example` to `.env` and change variable
