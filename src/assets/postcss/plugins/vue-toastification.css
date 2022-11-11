@@ -1,0 +1,15 @@
+@import "vue-toastification/dist/index";
+
+.Vue-Toastification__toast {
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    max-width: 326px;
+    min-width: 600px;
+    overflow: hidden;
+    pointer-events: auto;
+    position: relative;
+    user-select: none;
+    padding: 0;
+    background: transparent !important;
+    color: inherit;
+}

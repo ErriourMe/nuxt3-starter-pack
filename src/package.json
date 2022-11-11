@@ -1,0 +1,67 @@
+{
+  "name": "nuxt3-starter-pack",
+  "version": "0.1.0",
+  "description": "Starter pack for build client using Nuxt 3 + UnoCSS (TailwindCSS 3)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ErriourMe/nuxt3-starter-pack"
+  },
+  "author": "ErriourMe",
+  "license": "MIT",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "start": "node .output/server/index.mjs",
+    "postinstall": "cd .. && husky install src/.husky",
+    "lint": "eslint --ext \".ts,.js,.vue\" --ignore-path .gitignore .",
+    "lintfix": "eslint --fix --ext \".ts,.js,.vue\" --ignore-path .gitignore .",
+    "prepare": "cd .. && husky install src/.husky"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
+    "@headlessui/vue": "1.7.4",
+    "@nuxt/image-edge": "1.0.0-27769790.4b27db3",
+    "@nuxtjs/eslint-config-typescript": "^11.0.0",
+    "@nuxtjs/eslint-module": "3.1.0",
+    "@nuxtjs/google-fonts": "3.0.0-1",
+    "@pinia/nuxt": "^0.4.3",
+    "@unocss/nuxt": "^0.46.3",
+    "@vueuse/nuxt": "^9.4.0",
+    "autoprefixer": "^10.4.13",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "nuxt": "3.0.0-rc.13",
+    "nuxt-icon": "^0.1.7",
+    "pinia": "^2.0.23",
+    "postcss": "^8.4.18",
+    "postcss-nested": "^6.0.0",
+    "postcss-scss": "^4.0.5",
+    "prettier": "^2.7.1",
+    "typescript": "^4.8.4",
+    "unocss": "^0.46.3",
+    "unocss-preset-scrollbar": "^0.2.1",
+    "unplugin-vue-components": "0.22.9",
+    "vite": "^3.2.2",
+    "vue": "^3.2.41",
+    "webpack": "^5.74.0"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,vue,html}": [
+      "pnpm lintfix"
+    ]
+  },
+  "dependencies": {
+    "@nuxtjs/i18n": "8.0.0-beta.3",
+    "floating-vue": "2.0.0-beta.20",
+    "mitt": "^3.0.0",
+    "vue-toastification": "^2.0.0-rc.5"
+  }
+}
