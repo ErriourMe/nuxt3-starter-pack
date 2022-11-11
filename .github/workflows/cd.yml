@@ -6,9 +6,9 @@ jobs:
   cd:
     runs-on: ${{ matrix.os }}
     defaults:
-    run:
-      shell: bash
-      working-directory: src
+      run:
+        shell: bash
+        working-directory: src
 
     strategy:
       matrix:
